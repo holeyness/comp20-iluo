@@ -1,0 +1,12 @@
+====================================
+README for Status Updates
+====================================
+
+Name: Yueming Luo
+Date: Feb 18, 2014
+Github: Holeyness
+
+Function: Updates from the form are dynamically updated onto the page
+
+Notes: The status are updated from the latest on top, while the timestamp is added to each message.
+
