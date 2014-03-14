@@ -76,7 +76,7 @@ function toRad(x){
 		 return x * Math.PI / 180;
 }
 	
-function calculate(lat1,long1,lat2,long2){
+function calculate(lat1,lon1,lat2,lon2){
 	var R = 6371; // km
 
 	var dLat = toRad((lat2-lat1));
