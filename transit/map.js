@@ -2,6 +2,8 @@ var map;
 var mypos;
 var lat;
 var long;
+var mystation;
+var xhr;
 
 function init() {
      var mapOptions = {
@@ -16,7 +18,15 @@ function init() {
             
      //find me
      findme();
+     downloadData();
      
+}
+
+function downloadData(){
+	xhr = new XMLHttpRequest;
+	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
+	xhr.send();
+	console.log(xhr);
 }
 
 function findme(){
@@ -44,7 +54,8 @@ function findme(){
     title:"Your Location"
 	});
 	console.log(mypos);
-     closestStation();
+    mystation = closestStation();
+    display();
       map.setCenter(mypos);
     }, function() {
       handleNoGeolocation(true);
@@ -66,7 +77,7 @@ function closestStation(){
 			distance = dist;
 		}
 	}
-	console.log("stationname");
+	console.log(stationname);
 	return stationname;
 	
 }
@@ -92,7 +103,15 @@ function calculate(lat1,lon1,lat2,lon2){
 	
 }
 
-
+function display(){
+	//what line?
+	var color;
+	for (i=0; i<stations.length;i++){
+		if (mystation == stations[i].Station){
+			color = 
+		}
+	}
+}
 
 //STATIONS DATA
 var bluestations = 
