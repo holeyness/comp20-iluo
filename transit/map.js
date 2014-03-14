@@ -14,6 +14,7 @@ function init() {
             
      //find me
      findme();
+     closest_station();
      
 }
 
