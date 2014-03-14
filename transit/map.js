@@ -21,6 +21,7 @@ function init() {
      //find me
      findme();
      downloadData();
+     mystation = closestStation();
      
 }
 
@@ -33,10 +34,12 @@ function downloadData(){
 	xhr.onreadystatechange = function (){
 		if (xhr.readyState == 4){
 			if (xhr.status == 200){
-				console.log("hello");
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
+			} else if (xhr.status == 500){
+				downloadData();	//repeat function if status is 500
+				return;
 			}
 		}
 	}
@@ -66,8 +69,6 @@ function findme(){
     map: map,
     title:"Your Location"
 	});
-	console.log(mypos);
-    mystation = closestStation();
     display();
       map.setCenter(mypos);
     }, function() {
@@ -83,13 +84,33 @@ function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
-	for (i=0; i<stations.length; i++){
-		var dist = calculate(stations[i].Lat,stations[i].Long,lat,long);
-		if (dist < distance){
-			stationname = stations[i].Station;
-			distance = dist;
+	
+	if (myline == red){
+		for (i=0; i<redstations.length; i++){
+			var dist = calculate(redstations[i].Lat,redstations[i].Long,lat,long);
+			if (dist < distance){
+				stationname = redstations[i].Station;
+				distance = dist;
+			}
 		}
+	} else if (myline == blue){
+		for (i=0; i<bluestations.length; i++){
+			var dist = calculate(bluestations[i].Lat,bluestations[i].Long,lat,long);
+			if (dist < distance){
+				stationname = blustations[i].Station;
+				distance = dist;
+			}
+		}
+	} else if (myline == orange){
+		for (i=0; i<orangestations.length; i++){
+			var dist = calculate(orangestations[i].Lat,orangestations[i].Long,lat,long);
+			if (dist < distance){
+				stationname = orangestations[i].Station;
+				distance = dist;
+			}
+		}	
 	}
+	
 	console.log(stationname);
 	return stationname;
 	
