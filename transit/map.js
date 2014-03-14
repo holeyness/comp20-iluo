@@ -85,7 +85,7 @@ function closestStation(){
 	var stationname;
 	
 	
-	if (myline == red){
+	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
 			var dist = calculate(redstations[i].Lat,redstations[i].Long,lat,long);
 			if (dist < distance){
@@ -93,7 +93,7 @@ function closestStation(){
 				distance = dist;
 			}
 		}
-	} else if (myline == blue){
+	} else if (myline == "blue"){
 		for (i=0; i<bluestations.length; i++){
 			var dist = calculate(bluestations[i].Lat,bluestations[i].Long,lat,long);
 			if (dist < distance){
@@ -101,7 +101,7 @@ function closestStation(){
 				distance = dist;
 			}
 		}
-	} else if (myline == orange){
+	} else if (myline == "orange"){
 		for (i=0; i<orangestations.length; i++){
 			var dist = calculate(orangestations[i].Lat,orangestations[i].Long,lat,long);
 			if (dist < distance){
