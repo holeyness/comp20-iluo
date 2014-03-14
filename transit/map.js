@@ -55,7 +55,7 @@ function closestStation(){
 	var stationname;
 	
 	for (i=0; i<stations.length; i++){
-		var dist = calculate(stations[i].Lat,stations[i].Long,mypos["k"],mypos["A"])
+		var dist = calculate(stations[i].Lat,stations[i].Long,mypos["k"],mypos["A"]);
 		if (dist < distance){
 			stationname = stations[i].Station;
 		}
