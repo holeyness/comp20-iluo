@@ -16,7 +16,6 @@ function init() {
             
      //find me
      findme();
-     closestStation();
      
 }
 
@@ -45,7 +44,7 @@ function findme(){
     title:"Your Location"
 	});
 	console.log(mypos);
-
+     closestStation();
       map.setCenter(mypos);
     }, function() {
       handleNoGeolocation(true);
