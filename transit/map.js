@@ -1,5 +1,7 @@
 var map;
 var mypos;
+var lat;
+var long;
 
 function init() {
      var mapOptions = {
@@ -31,6 +33,10 @@ function findme(){
         
         content: '!!!!'
       });
+    lat = mypos["k"];
+    console.log(lat);
+    long = mypos["A"];
+    console.log(long);
       
       
     var posmarker = new google.maps.Marker({
