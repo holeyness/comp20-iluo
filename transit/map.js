@@ -14,7 +14,7 @@ function init() {
             
      //find me
      findme();
-     closest_station();
+     closestStation();
      
 }
 
@@ -50,7 +50,7 @@ function findme(){
   }
 }
 
-function closest_station(){
+function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
