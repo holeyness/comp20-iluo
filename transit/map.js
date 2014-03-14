@@ -36,9 +36,11 @@ function downloadData(){
 	}
 	
 	if(xhr.readyState==4){
+		console.log("hello");
 		result = JSON.parse(xhr.response);
 		myline = result.line;
 		console.log(myline);
+		
 	}
 	
 	xhr.send(null);
