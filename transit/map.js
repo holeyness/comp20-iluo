@@ -84,7 +84,6 @@ function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
-	console.log("lol");
 	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
 			var dist = calculate(redstations[i].Lat,redstations[i].Long,lat,long);
@@ -97,7 +96,7 @@ function closestStation(){
 		for (i=0; i<bluestations.length; i++){
 			var dist = calculate(bluestations[i].Lat,bluestations[i].Long,lat,long);
 			if (dist < distance){
-				stationname = blustations[i].Station;
+				stationname = bluestations[i].Station;
 				distance = dist;
 			}
 		}
