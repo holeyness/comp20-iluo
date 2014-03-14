@@ -30,15 +30,17 @@ function downloadData(){
 	xhr.send(null);
 	//ERROR HANDLING
 	
-	if(xhr.status==200){
-		console.log("hello");
-		result = JSON.parse(xhr.response);
-		myline = result.line;
-		console.log(myline);
-		
+	xhr.onreadystatechange = function (){
+		if (xhr.readyState == 4){
+			if (xhr.status == 200){
+				console.log("hello");
+				result = JSON.parse(xhr.response);
+				myline = result.line;
+				console.log(myline);	
+			}
+		}
 	}
-	
-
+	xhr.send(null);
 }
 
 function findme(){
