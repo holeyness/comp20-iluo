@@ -108,7 +108,6 @@ function display(){
 	var color;
 	for (i=0; i<stations.length;i++){
 		if (mystation == stations[i].Station){
-			color = 
 		}
 	}
 }
