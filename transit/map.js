@@ -27,7 +27,7 @@ function init() {
 function downloadData(){
 	xhr = new XMLHttpRequest;
 	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
-
+	xhr.send(null);
 	//ERROR HANDLING
 	
 	if(xhr.status == 500){
@@ -43,7 +43,7 @@ function downloadData(){
 		
 	}
 	
-	xhr.send(null);
+
 }
 
 function findme(){
