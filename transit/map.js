@@ -20,8 +20,6 @@ function init() {
             
      //find me
      findme();
-     downloadData();
-     
 }
 
 function downloadData(){
@@ -36,6 +34,7 @@ function downloadData(){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
+				 mystation = closestStation();	//when downloaddata completes run closest station
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -67,13 +66,12 @@ function findme(){
     position: mypos,
     map: map,
     title:"Your Location"
-	});
-    display();
+	})
       map.setCenter(mypos);
     }, function() {
       handleNoGeolocation(true);
     });
-    mystation = closestStation();
+         downloadData();	//after findme completes run download data
   } else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
