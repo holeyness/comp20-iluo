@@ -10,7 +10,11 @@ function init() {
             
             
      //find me
-    if(navigator.geolocation) {
+     findme();
+}
+
+function findme(){
+	 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
@@ -38,4 +42,5 @@ function init() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+
 }
