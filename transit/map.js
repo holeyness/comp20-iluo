@@ -5,7 +5,7 @@ function init() {
      
      };
      
-     var map = new google.maps.Map(document.getElementById("canvas"),
+     map = new google.maps.Map(document.getElementById("canvas"),
             mapOptions);
             
             
