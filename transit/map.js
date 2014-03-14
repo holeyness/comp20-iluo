@@ -14,7 +14,7 @@ function init() {
             
      //find me
      findme();
-     console.log(mypos);
+     
 }
 
 function findme(){
@@ -37,6 +37,7 @@ function findme(){
     map: map,
     title:"Your Location"
 	});
+	console.log(mypos);
 
       map.setCenter(mypos);
     }, function() {
@@ -49,15 +50,10 @@ function findme(){
 
 }
 
-function closest(){
-	
-}
-
-
 
 
 //STATIONS DATA
-var bluestations {
+var bluestations = 
 [{"Station":"Airport","Lat":42.374262,"Long":-71.030395},
 {"Station":"Aquarium","Lat":42.359784,"Long":-71.051652},
 {"Station":"Beachmont","Lat":42.39754234,"Long":-70.99231944},
@@ -69,9 +65,9 @@ var bluestations {
 {"Station":"State Street","Lat":42.358978,"Long":-71.057598},
 {"Station":"Suffolk Downs","Lat":42.39050067,"Long":-70.99712259},
 {"Station":"Wonderland","Lat":42.41342,"Long":-70.991648},
-{"Station":"Wood Island","Lat":42.3796403,"Long":-71.02286539},
+{"Station":"Wood Island","Lat":42.3796403,"Long":-71.02286539}];
 
-var orangestations{
+var orangestations =
 [{"Station":"Back Bay","Lat":42.34735,"Long":-71.075727},
 {"Station":"Chinatown","Lat":42.352547,"Long":-71.062752},
 {"Station":"Community College","Lat":42.373622,"Long":-71.069533},
@@ -90,10 +86,9 @@ var orangestations{
 {"Station":"Stony Brook","Lat":42.317062,"Long":-71.104248},
 {"Station":"Sullivan","Lat":42.383975,"Long":-71.076994},
 {"Station":"Tufts Medical","Lat":42.349662,"Long":-71.063917},
-{"Station":"Wellington","Lat":42.40237,"Long":-71.077082}]
-}
+{"Station":"Wellington","Lat":42.40237,"Long":-71.077082}];
 
-var redstations{
+var redstations = 
 [{"Station":"Alewife","Lat":42.395428,"Long":-71.142483},
 {"Station":"Andrew","Lat":42.330154,"Long":-71.057655},
 {"Station":"Ashmont","Lat":42.284652,"Long":-71.064489},
@@ -115,10 +110,9 @@ var redstations{
 {"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
 {"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
 {"Station":"South Station","Lat":42.352271,"Long":-71.055242},
-{"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}]
-}
+{"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}];
 
-var stations{
+var stations =
 [{"Color":"Blue","Station":"Airport","Lat":42.374262,"Long":-71.030395},
 {"Color":"Blue","Station":"Aquarium","Lat":42.359784,"Long":-71.051652},
 {"Color":"Blue","Station":"Beachmont","Lat":42.39754234,"Long":-70.99231944},
@@ -171,5 +165,4 @@ var stations{
 {"Color":"Red","Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
 {"Color":"Red","Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
 {"Color":"Red","Station":"South Station","Lat":42.352271,"Long":-71.055242},
-{"Color":"Red","Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}]
-}
+{"Color":"Red","Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}];
