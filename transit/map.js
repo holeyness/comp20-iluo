@@ -18,8 +18,17 @@ function init() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        
+        
+        content: '!!!!'
       });
+      
+      
+    var posmarker = new google.maps.Marker({
+    position: pos,
+    map: map,
+    title:"Your Location"
+	});
 
       map.setCenter(pos);
     }, function() {
