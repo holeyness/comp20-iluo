@@ -30,11 +30,6 @@ function downloadData(){
 	xhr.send(null);
 	//ERROR HANDLING
 	
-	if(xhr.status == 500){
-		downloadData();	//retry if request status is 500
-		return;
-	}
-	
 	if(xhr.status==200){
 		console.log("hello");
 		result = JSON.parse(xhr.response);
