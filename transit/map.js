@@ -74,10 +74,15 @@ function closestStation(){
 
 function calculate(lat1,long1,lat2,long2){
 	var R = 6371; // km
-	var dLat = (lat2-lat1).toRad();
-	var dLon = (lon2-lon1).toRad();
-	var lat1 = lat1.toRad();
-	var lat2 = lat2.toRad();
+	
+	function toRad(x){
+		 return x * Math.PI / 180;
+	}
+	
+	var dLat = toRad((lat2-lat1));
+	var dLon = toRad((lon2-lon1));
+	var lat1 = toRad(lat1);
+	var lat2 = toRad(lat2.);
 
 	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
         Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
@@ -205,13 +210,4 @@ var stations =
 {"Color":"Red","Station":"South Station","Lat":42.352271,"Long":-71.055242},
 {"Color":"Red","Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}];
 
-
-//helper to rad function
-/** Converts numeric degrees to radians */
-function toRad(){
-if (typeof(Number.prototype.toRad) === "undefined") {
-  Number.prototype.toRad = function() {
-    return this * Math.PI / 180;
-  }
-}
 }
