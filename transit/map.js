@@ -47,7 +47,37 @@ function findme(){
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+}
 
+function closest_station(){
+	var distance = 10000;
+	var stationname;
+	
+	for (i=0; i<stations.length; i++){
+		var dist = calculate(stations[i].Lat,stations[i].Long,mypos["k"],mypos["A"])
+		if (dist < distance){
+			stationname = stations[i].Station;
+		}
+	}
+	console.log("stationname");
+	return stationname;
+	
+}
+
+function calculate(lat1,long1,lat2,long2){
+	var R = 6371; // km
+	var dLat = (lat2-lat1).toRad();
+	var dLon = (lon2-lon1).toRad();
+	var lat1 = lat1.toRad();
+	var lat2 = lat2.toRad();
+
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = R * c * 0.6213;
+		
+	return d;	//miles
+	
 }
 
 
