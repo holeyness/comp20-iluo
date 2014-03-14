@@ -4,6 +4,8 @@ var lat;
 var long;
 var mystation;
 var xhr;
+var myline;
+var result;
 
 function init() {
      var mapOptions = {
@@ -25,8 +27,21 @@ function init() {
 function downloadData(){
 	xhr = new XMLHttpRequest;
 	xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
-	xhr.send();
-	console.log(xhr);
+
+	//ERROR HANDLING
+	
+	if(xhr.status == 500){
+		downloadData();	//retry if request status is 500
+		return;
+	}
+	
+	if(xhr.readystate==4){
+		result = JSON.parse(xhr.response);
+		myline = result.line;
+		console.log(myline);
+	}
+	
+	xhr.send(null);
 }
 
 function findme(){
