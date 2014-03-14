@@ -36,7 +36,6 @@ function downloadData(){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
-				mystation = closestStation();
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -74,6 +73,7 @@ function findme(){
     }, function() {
       handleNoGeolocation(true);
     });
+    mystation = closestStation();
   } else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
@@ -136,14 +136,6 @@ function calculate(lat1,lon1,lat2,lon2){
 	
 }
 
-function display(){
-	//what line?
-	var color;
-	for (i=0; i<stations.length;i++){
-		if (mystation == stations[i].Station){
-		}
-	}
-}
 
 //STATIONS DATA
 var bluestations = 
