@@ -40,7 +40,6 @@ function downloadData(){
 			}
 		}
 	}
-	xhr.send(null);
 }
 
 function findme(){
