@@ -71,14 +71,14 @@ function closestStation(){
 	return stationname;
 	
 }
-
+//helper function
+function toRad(x){
+		 return x * Math.PI / 180;
+}
+	
 function calculate(lat1,long1,lat2,long2){
 	var R = 6371; // km
-	
-	function toRad(x){
-		 return x * Math.PI / 180;
-	}
-	
+
 	var dLat = toRad((lat2-lat1));
 	var dLon = toRad((lon2-lon1));
 	var lat1 = toRad(lat1);
