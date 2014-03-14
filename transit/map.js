@@ -209,5 +209,3 @@ var stations =
 {"Color":"Red","Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
 {"Color":"Red","Station":"South Station","Lat":42.352271,"Long":-71.055242},
 {"Color":"Red","Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}];
-
-}
