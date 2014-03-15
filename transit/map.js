@@ -19,7 +19,6 @@ function init() {
             
             
      //find me
-     findme(closestStation);
      downloadData();
 }
 
@@ -35,6 +34,7 @@ function downloadData(){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
+				findme(closestStation);
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
