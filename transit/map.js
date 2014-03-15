@@ -21,7 +21,7 @@ function init() {
      //find me
      findme();
      downloadData();
-     closestStation();
+     stationcaller();
 }
 
 function downloadData(){
@@ -80,16 +80,19 @@ function findme(){
   }
 }
 
+function stationcaller(){
+	if (lat != 0 && long != 0 && myline == "white"){
+		closestStation();
+	} else{
+		setTimeout(stationcaller, 500);
+	}
+}
 
 
 function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
-	while (lat == 0 || long == 0 || myline == "white"){
-		setTimeout(closestStation(), 500);
-		return;
-	}
 	console.log("run");
 	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
