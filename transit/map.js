@@ -6,6 +6,7 @@ var mystation;
 var xhr;
 var myline = "white";
 var result;
+var mylinestations;
 
 function init() {
      var mapOptions = {
@@ -21,7 +22,6 @@ function init() {
      //find me
      findme();
      downloadData();
-     stationcaller();
 }
 
 function downloadData(){
@@ -80,14 +80,6 @@ function findme(){
   }
 }
 
-function stationcaller(){
-	if (lat != 0 && long != 0 && myline == "white"){
-		closestStation();
-	} else{
-		setTimeout(stationcaller(), 500);
-	}
-}
-
 
 function closestStation(){
 	var distance = 10000;
@@ -126,6 +118,23 @@ function closestStation(){
 //helper function
 function toRad(x){
 		 return x * Math.PI / 180;
+}
+
+function drawstations(){
+	if (myline == "red"){
+		mylinestations = "redstations";
+	} else if (myline == "blue"){
+		mylinestations == "bluestations";
+	} else if (myline == "orange"){
+		mylinestations == "orangestations";
+	}
+	
+	for (i = 0; i < mylinestations.length; i++){
+		marker = new google.maps.Marker({
+			position: new google.maps.LatLng(mylinestations[i].Lat, mylinestations[i].Long),
+			map:map
+		});
+	}
 }
 	
 function calculate(lat1,lon1,lat2,lon2){
