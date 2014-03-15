@@ -1,10 +1,10 @@
 var map;
 var mypos;
-var lat;
-var long;
+var lat = 0;
+var long = 0;
 var mystation;
 var xhr;
-var myline;
+var myline = "white";
 var result;
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
             
             
      //find me
-     findme(closestStation())
+     findme();
      downloadData();
 }
 
@@ -45,7 +45,7 @@ function downloadData(){
 }
 
 
-function findme(callback){
+function findme(){
 	 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       mypos = new google.maps.LatLng(position.coords.latitude,
@@ -85,6 +85,11 @@ function findme(callback){
 function closestStation(){
 	var distance = 10000;
 	var stationname;
+	
+	while (lat == 0 || long == 0 || myline == white){
+		closestStation();
+		return;
+	}
 	
 	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
