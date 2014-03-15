@@ -6,9 +6,6 @@ var mystation;
 var xhr;
 var myline;
 var result;
-var ready = false;
-var ready1 = false;
-var ready2 = false;
 
 function init() {
      var mapOptions = {
@@ -22,7 +19,8 @@ function init() {
             
             
      //find me
-     findme();
+     findme(closestStation);
+     downloadData();
 }
 
 function downloadData(){
@@ -36,8 +34,7 @@ function downloadData(){
 			if (xhr.status == 200){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
-				console.log(myline);
-				ready2=true;	
+				console.log(myline);	
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -47,7 +44,7 @@ function downloadData(){
 }
 
 
-function findme(){
+function findme(callback){
 	 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       mypos = new google.maps.LatLng(position.coords.latitude,
@@ -76,7 +73,11 @@ function findme(){
     }, function() {
       handleNoGeolocation(true);
     });
-         downloadData();	//after findme completes run download data
+
+		return callback(function(){
+			return true;
+		});         
+         
   } else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
@@ -84,24 +85,8 @@ function findme(){
 }
 
 
-function responsecheck(){
-	while (ready == false){
-		if (ready1 == true && ready2 == true){
-			ready = true;
-		}		
-	}
-}
 
-var interval = setInterval(function() {
-	if (ready){
-		clearInterval(interval);
-		closestStation();
-	}
-})
-
-
-
-function closestStation(){
+function closestStation(callback){
 	var distance = 10000;
 	var stationname;
 	
@@ -130,9 +115,9 @@ function closestStation(){
 			}
 		}	
 	}
-	
+	mystation = stationname;
 	console.log(stationname);
-	return stationname;
+	return callback();
 	
 }
 //helper function
