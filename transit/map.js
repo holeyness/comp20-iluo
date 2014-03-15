@@ -87,7 +87,7 @@ function closestStation(){
 	var stationname;
 	
 	while (lat == 0 || long == 0 || myline == "white"){
-		closestStation();
+		setTimeout(closestStation(), 500);
 		return;
 	}
 	console.log("run");
