@@ -20,7 +20,7 @@ function init() {
             
             
      //find me
-     findme();
+
      downloadData();
 }
 
@@ -36,7 +36,7 @@ function downloadData(){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
-				
+				findme(closestStation);
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -46,7 +46,7 @@ function downloadData(){
 }
 
 
-function findme(){
+function findme(callback){
 	 if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       mypos = new google.maps.LatLng(position.coords.latitude,
@@ -63,6 +63,9 @@ function findme(){
     console.log(lat);
     long = mypos["A"];
     console.log(long);
+    
+    setTimeout(function(){console.log("Hello"), callback();}, 10000);
+    
     
     var posmarker = new google.maps.Marker({
     position: mypos,
@@ -130,10 +133,6 @@ function drawstations(){
 	}
 	
 	for (i = 0; i < mylinestations.length; i++){
-		marker = new google.maps.Marker({
-			position: new google.maps.LatLng(mylinestations[i].Lat, mylinestations[i].Long),
-			map:map
-		});
 	}
 }
 	
