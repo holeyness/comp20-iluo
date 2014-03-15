@@ -62,7 +62,6 @@ function findme(){
     console.log(lat);
     long = mypos["A"];
     console.log(long);
-    callback();   
       
     var posmarker = new google.maps.Marker({
     position: mypos,
@@ -90,7 +89,7 @@ function closestStation(){
 		closestStation();
 		return;
 	}
-	
+	console.log("run");
 	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
 			var dist = calculate(redstations[i].Lat,redstations[i].Long,lat,long);
