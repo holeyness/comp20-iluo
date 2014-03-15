@@ -21,6 +21,7 @@ function init() {
      //find me
      findme();
      downloadData();
+     closestStation();
 }
 
 function downloadData(){
@@ -62,7 +63,7 @@ function findme(){
     console.log(lat);
     long = mypos["A"];
     console.log(long);
-      
+    
     var posmarker = new google.maps.Marker({
     position: mypos,
     map: map,
