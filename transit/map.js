@@ -125,23 +125,37 @@ function toRad(x){
 }
 
 function drawStations(){
-	if (myline == "red"){
-		mylinestations = "redstations";
-	} else if (myline == "blue"){
-		mylinestations == "bluestations";
+	if (myline == "blue"){
+		for (i = 0; i < bluestations.length; i++){
+			var image = 'marker.gif';
+			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
+			var stationMarker = new google.maps.Marker({
+				position: myLatLng,
+				map:map,
+				icon: image
+			});
+		}
+	} else if (myline == "red"){
+		for (i = 0; i < redstations.length; i++){
+			var image = 'marker.gif';
+			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
+			var stationMarker = new google.maps.Marker({
+				position: myLatLng,
+				map:map,
+				icon: image
+			});
+		}
 	} else if (myline == "orange"){
-		mylinestations == "orangestations";
-	}
-	
-	for (i = 0; i < mylinestations.length; i++){
-		var image = 'marker.gif';
-		var myLatLng = new google.maps.LatLng(mylinestations[i].Lat, mylinestations[i].Long);
-		var stationMarker = new google.maps.Marker({
-			position: myLatLng,
-			map:map,
-			icon: image
-		});
-	}
+		for (i = 0; i < orangestations.length; i++){
+			var image = 'marker.gif';
+			var myLatLng = new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long);
+			var stationMarker = new google.maps.Marker({
+				position: myLatLng,
+				map:map,
+				icon: image
+			});
+		}
+	}		
 }
 	
 function calculate(lat1,lon1,lat2,lon2){
