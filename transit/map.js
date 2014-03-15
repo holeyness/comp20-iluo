@@ -127,7 +127,7 @@ function toRad(x){
 function drawStations(){
 	if (myline == "blue"){
 		for (i = 0; i < bluestations.length; i++){
-			var image = 'marker.gif';
+			var image = 'marker.png';
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -137,7 +137,7 @@ function drawStations(){
 		}
 	} else if (myline == "red"){
 		for (i = 0; i < redstations.length; i++){
-			var image = 'marker.gif';
+			var image = 'marker.png';
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -147,7 +147,7 @@ function drawStations(){
 		}
 	} else if (myline == "orange"){
 		for (i = 0; i < orangestations.length; i++){
-			var image = 'marker.gif';
+			var image = 'marker.png';
 			var myLatLng = new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -161,10 +161,16 @@ function drawStations(){
 
 function drawLines(){
 	if (myline == "blue"){
-	
 		for (i = 0; i < bluestations.length; i++){
-			new google.maps.LatLng
+			var blueCoord = [new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long)];
 		}
+		var path = new google.maps.Polyline({
+			path: blueCoord,
+			geodesic: true,
+			strokeColor: '#0000FF',
+			strokeOpacity: 1.0,
+			strokeWeight: 2		
+		});
 	}
 }
 	
