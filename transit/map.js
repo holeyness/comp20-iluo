@@ -85,7 +85,7 @@ function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
-	while (lat == 0 || long == 0 || myline == white){
+	while (lat == 0 || long == 0 || myline == "white"){
 		closestStation();
 		return;
 	}
