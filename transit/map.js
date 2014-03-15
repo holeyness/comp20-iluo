@@ -84,7 +84,7 @@ function stationcaller(){
 	if (lat != 0 && long != 0 && myline == "white"){
 		closestStation();
 	} else{
-		setTimeout(stationcaller, 500);
+		setTimeout(stationcaller(), 500);
 	}
 }
 
