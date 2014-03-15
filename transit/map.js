@@ -6,6 +6,9 @@ var mystation;
 var xhr;
 var myline;
 var result;
+var ready = false;
+var ready1 = false;
+var ready2 = false;
 
 function init() {
      var mapOptions = {
@@ -33,8 +36,8 @@ function downloadData(){
 			if (xhr.status == 200){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
-				console.log(myline);	
-				 mystation = closestStation();	//when downloaddata completes run closest station
+				console.log(myline);
+				ready2=true;	
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -42,6 +45,7 @@ function downloadData(){
 		}
 	}
 }
+
 
 function findme(){
 	 if(navigator.geolocation) {
@@ -60,12 +64,13 @@ function findme(){
     console.log(lat);
     long = mypos["A"];
     console.log(long);
-      
+    ready1 = true;    
       
     var posmarker = new google.maps.Marker({
     position: mypos,
     map: map,
     title:"Your Location"
+
 	})
       map.setCenter(mypos);
     }, function() {
@@ -77,6 +82,22 @@ function findme(){
     handleNoGeolocation(false);
   }
 }
+
+
+function responsecheck(){
+	if (ready1 == true && ready2 == true){
+		ready = true;
+	}
+}
+
+var interval = setInterval(function() {
+	if (ready){
+		clearInterval(interval);
+		closestStation();
+	}
+})
+
+
 
 function closestStation(){
 	var distance = 10000;
