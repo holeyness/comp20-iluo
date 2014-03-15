@@ -133,6 +133,13 @@ function drawstations(){
 	}
 	
 	for (i = 0; i < mylinestations.length; i++){
+		var image = 'marker.gif';
+		var myLatLng = new google.maps.LatLng(mylinestations[i].Lat, mylinestations[i].Long);
+		var stationMarker = new google.maps.Marker({
+			position: myLatLng,
+			map:map,
+			icon: image
+		});
 	}
 }
 	
