@@ -171,6 +171,7 @@ function drawLines(){
 			strokeOpacity: 1.0,
 			strokeWeight: 2		
 		});
+		path.setMap(map);
 	}
 }
 	
