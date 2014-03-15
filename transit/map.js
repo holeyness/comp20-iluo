@@ -116,6 +116,7 @@ function closestStation(){
 	}
 	mystation = stationname;
 	console.log(stationname);
+	drawStations();
 	
 }
 //helper function
@@ -123,7 +124,7 @@ function toRad(x){
 		 return x * Math.PI / 180;
 }
 
-function drawstations(){
+function drawStations(){
 	if (myline == "red"){
 		mylinestations = "redstations";
 	} else if (myline == "blue"){
