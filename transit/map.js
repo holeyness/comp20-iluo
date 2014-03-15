@@ -156,10 +156,10 @@ function drawStations(){
 			});
 		}
 	}
-	drawLines(color);		
+	drawLines();		
 }
 
-function drawLines(color){
+function drawLines(){
 	if (myline == "blue"){
 	
 		for (i = 0; i < bluestations.length; i++){
