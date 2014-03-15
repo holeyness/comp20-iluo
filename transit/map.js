@@ -155,7 +155,17 @@ function drawStations(){
 				icon: image
 			});
 		}
-	}		
+	}
+	drawLines(color);		
+}
+
+function drawLines(color){
+	if (myline == "blue"){
+	
+		for (i = 0; i < bluestations.length; i++){
+			new google.maps.LatLng
+		}
+	}
 }
 	
 function calculate(lat1,lon1,lat2,lon2){
