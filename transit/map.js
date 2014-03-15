@@ -85,8 +85,10 @@ function findme(){
 
 
 function responsecheck(){
-	if (ready1 == true && ready2 == true){
-		ready = true;
+	while (ready == false){
+		if (ready1 == true && ready2 == true){
+			ready = true;
+		}		
 	}
 }
 
