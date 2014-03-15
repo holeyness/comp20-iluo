@@ -19,6 +19,7 @@ function init() {
             
             
      //find me
+     findme(closestStation())
      downloadData();
 }
 
@@ -34,7 +35,7 @@ function downloadData(){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
 				console.log(myline);	
-				findme(closestStation);
+				
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
 				return;
@@ -61,7 +62,7 @@ function findme(callback){
     console.log(lat);
     long = mypos["A"];
     console.log(long);
-    ready1 = true;    
+    callback();   
       
     var posmarker = new google.maps.Marker({
     position: mypos,
@@ -73,11 +74,6 @@ function findme(callback){
     }, function() {
       handleNoGeolocation(true);
     });
-
-		return callback(function(){
-			return true;
-		});         
-         
   } else {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
@@ -86,7 +82,7 @@ function findme(callback){
 
 
 
-function closestStation(callback){
+function closestStation(){
 	var distance = 10000;
 	var stationname;
 	
@@ -117,7 +113,6 @@ function closestStation(callback){
 	}
 	mystation = stationname;
 	console.log(stationname);
-	return callback();
 	
 }
 //helper function
