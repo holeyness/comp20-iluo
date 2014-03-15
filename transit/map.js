@@ -57,7 +57,7 @@ function findme(){
         position: mypos,
         
         
-        content: '!!!!'
+        content: '!!!'
       });
     lat = mypos["k"];
     console.log(lat);
