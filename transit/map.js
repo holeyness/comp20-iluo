@@ -173,6 +173,32 @@ function drawLines(){
 			strokeWeight: 2		
 		});
 		path.setMap(map);
+	} else if (myline == "red"){
+		var redCoord = [];
+		for (i = 0; i < redstations.length; i++){
+			redCoord.push(new google.maps.LatLng(redstations[i].Lat, redstations[i].Long));
+		}
+		var path = new google.maps.Polyline({
+			path: redCoord,
+			geodesic: true,
+			strokeColor: '#0000FF',
+			strokeOpacity: 1.0,
+			strokeWeight: 2		
+		});
+		path.setMap(map);
+	} else if (myline == "orange"){
+		var orangeCoord = [];
+		for (i = 0; i < redstations.length; i++){
+			orangeCoord.push(new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long));
+		}
+		var path = new google.maps.Polyline({
+			path: orangeCoord,
+			geodesic: true,
+			strokeColor: '#0000FF',
+			strokeOpacity: 1.0,
+			strokeWeight: 2		
+		});
+		path.setMap(map);	
 	}
 }
 	
@@ -196,63 +222,63 @@ function calculate(lat1,lon1,lat2,lon2){
 
 //STATIONS DATA
 var bluestations = 
-[{"Station":"Airport","Lat":42.374262,"Long":-71.030395},
-{"Station":"Aquarium","Lat":42.359784,"Long":-71.051652},
-{"Station":"Beachmont","Lat":42.39754234,"Long":-70.99231944},
-{"Station":"Bowdoin","Lat":42.361365,"Long":-71.062037},
+[{"Station":"Bowdoin","Lat":42.361365,"Long":-71.062037},
 {"Station":"Government Center","Lat":42.359705,"Long":-71.059215},
-{"Station":"Maverick","Lat":42.36911856,"Long":-71.03952958},
-{"Station":"Orient Heights","Lat":42.386867,"Long":-71.004736},
-{"Station":"Revere Beach","Lat":42.40784254,"Long":-70.99253321},
 {"Station":"State Street","Lat":42.358978,"Long":-71.057598},
+{"Station":"Aquarium","Lat":42.359784,"Long":-71.051652},
+{"Station":"Maverick","Lat":42.36911856,"Long":-71.03952958},
+{"Station":"Airport","Lat":42.374262,"Long":-71.030395},
+{"Station":"Wood Island","Lat":42.3796403,"Long":-71.02286539},
+{"Station":"Orient Heights","Lat":42.386867,"Long":-71.004736},
 {"Station":"Suffolk Downs","Lat":42.39050067,"Long":-70.99712259},
-{"Station":"Wonderland","Lat":42.41342,"Long":-70.991648},
-{"Station":"Wood Island","Lat":42.3796403,"Long":-71.02286539}];
+{"Station":"Beachmont","Lat":42.39754234,"Long":-70.99231944},
+{"Station":"Revere Beach","Lat":42.40784254,"Long":-70.99253321},
+{"Station":"Wonderland","Lat":42.41342,"Long":-70.991648}];
 
 var orangestations =
-[{"Station":"Back Bay","Lat":42.34735,"Long":-71.075727},
-{"Station":"Chinatown","Lat":42.352547,"Long":-71.062752},
-{"Station":"Community College","Lat":42.373622,"Long":-71.069533},
-{"Station":"Downtown Crossing","Lat":42.355518,"Long":-71.060225},
-{"Station":"Forest Hills","Lat":42.300523,"Long":-71.113686},
-{"Station":"Green Street","Lat":42.310525,"Long":-71.107414},
-{"Station":"Haymarket","Lat":42.363021,"Long":-71.05829},
-{"Station":"Jackson Square","Lat":42.323132,"Long":-71.099592},
+[{"Station":"Oak Grove","Lat":42.43668,"Long":-71.071097},
 {"Station":"Malden Center","Lat":42.426632,"Long":-71.07411},
-{"Station":"Mass Ave","Lat":42.341512,"Long":-71.083423},
-{"Station":"North Station","Lat":42.365577,"Long":-71.06129},
-{"Station":"Oak Grove","Lat":42.43668,"Long":-71.071097},
-{"Station":"Roxbury Crossing","Lat":42.331397,"Long":-71.095451},
-{"Station":"Ruggles","Lat":42.336377,"Long":-71.088961},
-{"Station":"State Street","Lat":42.358978,"Long":-71.057598},
-{"Station":"Stony Brook","Lat":42.317062,"Long":-71.104248},
+{"Station":"Wellington","Lat":42.40237,"Long":-71.077082},
 {"Station":"Sullivan","Lat":42.383975,"Long":-71.076994},
+{"Station":"Community College","Lat":42.373622,"Long":-71.069533},
+{"Station":"North Station","Lat":42.365577,"Long":-71.06129},
+{"Station":"Haymarket","Lat":42.363021,"Long":-71.05829},
+{"Station":"State Street","Lat":42.358978,"Long":-71.057598},
+{"Station":"Downtown Crossing","Lat":42.355518,"Long":-71.060225},
+{"Station":"Chinatown","Lat":42.352547,"Long":-71.062752},
 {"Station":"Tufts Medical","Lat":42.349662,"Long":-71.063917},
-{"Station":"Wellington","Lat":42.40237,"Long":-71.077082}];
+{"Station":"Back Bay","Lat":42.34735,"Long":-71.075727},
+{"Station":"Mass Ave","Lat":42.341512,"Long":-71.083423},
+{"Station":"Ruggles","Lat":42.336377,"Long":-71.088961},
+{"Station":"Roxbury Crossing","Lat":42.331397,"Long":-71.095451},
+{"Station":"Jackson Square","Lat":42.323132,"Long":-71.099592},
+{"Station":"Stony Brook","Lat":42.317062,"Long":-71.104248},
+{"Station":"Green Street","Lat":42.310525,"Long":-71.107414},
+{"Station":"Forest Hills","Lat":42.300523,"Long":-71.113686}];
 
 var redstations = 
 [{"Station":"Alewife","Lat":42.395428,"Long":-71.142483},
-{"Station":"Andrew","Lat":42.330154,"Long":-71.057655},
-{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489},
-{"Station":"Braintree","Lat":42.2078543,"Long":-71.0011385},
-{"Station":"Broadway","Lat":42.342622,"Long":-71.056967},
-{"Station":"Central Square","Lat":42.365486,"Long":-71.103802},
-{"Station":"Charles/MGH","Lat":42.361166,"Long":-71.070628},
 {"Station":"Davis","Lat":42.39674,"Long":-71.121815},
-{"Station":"Downtown Crossing","Lat":42.355518,"Long":-71.060225},
-{"Station":"Fields Corner","Lat":42.300093,"Long":-71.061667},
-{"Station":"Harvard Square","Lat":42.373362,"Long":-71.118956},
-{"Station":"JFK/UMass","Lat":42.320685,"Long":-71.052391},
-{"Station":"Kendall/MIT","Lat":42.36249079,"Long":-71.08617653},
-{"Station":"North Quincy","Lat":42.275275,"Long":-71.029583},
-{"Station":"Park Street","Lat":42.35639457,"Long":-71.0624242},
 {"Station":"Porter Square","Lat":42.3884,"Long":-71.119149},
-{"Station":"Quincy Adams","Lat":42.233391,"Long":-71.007153},
-{"Station":"Quincy Center","Lat":42.251809,"Long":-71.005409},
-{"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
-{"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
+{"Station":"Harvard Square","Lat":42.373362,"Long":-71.118956},
+{"Station":"Central Square","Lat":42.365486,"Long":-71.103802},
+{"Station":"Kendall/MIT","Lat":42.36249079,"Long":-71.08617653},
+{"Station":"Charles/MGH","Lat":42.361166,"Long":-71.070628},
+{"Station":"Park Street","Lat":42.35639457,"Long":-71.0624242},
+{"Station":"Downtown Crossing","Lat":42.355518,"Long":-71.060225},
 {"Station":"South Station","Lat":42.352271,"Long":-71.055242},
-{"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369}];
+{"Station":"Broadway","Lat":42.342622,"Long":-71.056967},
+{"Station":"Andrew","Lat":42.330154,"Long":-71.057655},
+{"Station":"JFK/UMass","Lat":42.320685,"Long":-71.052391},
+{"Station":"North Quincy","Lat":42.275275,"Long":-71.029583},
+{"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369},
+{"Station":"Quincy Center","Lat":42.251809,"Long":-71.005409},
+{"Station":"Quincy Adams","Lat":42.233391,"Long":-71.007153},
+{"Station":"Braintree","Lat":42.2078543,"Long":-71.0011385},
+{"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
+{"Station":"Fields Corner","Lat":42.300093,"Long":-71.061667},
+{"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
+{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489}];
 
 var stations =
 [{"Color":"Blue","Station":"Airport","Lat":42.374262,"Long":-71.030395},
