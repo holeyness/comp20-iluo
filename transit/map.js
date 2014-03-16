@@ -160,7 +160,7 @@ function mywindow(){
 	var info = new google.maps.InfoWindow({
 		content: mycontent
 	});
-	infowindow.open(map,posmarker);
+	info.open(map,posmarker);
 }
 
 function drawLines(){
