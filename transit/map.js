@@ -210,8 +210,6 @@ function drawStations(){
 
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
-			
-			var stationcontent = 
 						
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
