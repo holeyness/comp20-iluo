@@ -7,6 +7,7 @@ var xhr;
 var myline = "white";
 var result;
 var mylinestations;
+var posmarker;
 
 function init() {
      var mapOptions = {
@@ -59,7 +60,7 @@ function findme(callback){
     setTimeout(function(){console.log("Hello"), callback();}, 10000);
     
     
-    var posmarker = new google.maps.Marker({
+    posmarker = new google.maps.Marker({
     position: mypos,
     map: map,
     title:"Your Location"
@@ -153,12 +154,12 @@ function drawStations(){
 }
 
 function mywindow(){
-	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+'mystation'+'</p>'+'</div>';
+	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'</div>';
 	
 	var info = new google.maps.InfoWindow({
 		content: mycontent
-		position: mypos
 	});
+	infowindow.open(map,posmarker);
 }
 
 function drawLines(){
