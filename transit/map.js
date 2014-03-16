@@ -115,6 +115,7 @@ function closestStation(){
 	mystation = stationname;
 	console.log(stationname);
 	drawStations();
+	mywindow();	
 	
 }
 //helper function
@@ -288,7 +289,7 @@ function drawStations(){
 		}
 	}
 	drawLines();	
-	mywindow();	
+
 }
 
 function mywindow(){
