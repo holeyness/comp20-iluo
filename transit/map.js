@@ -10,6 +10,9 @@ var mylinestations;
 var posmarker;
 var distance;
 var stationinfo;
+var inbound;
+var outbound;
+var braintree;
 
 function init() {
      var mapOptions = {
@@ -119,15 +122,87 @@ function toRad(x){
 		 return x * Math.PI / 180;
 }
 
-function intrains(station){
+function trains(station){	//returns an array with a list of times inbound
 	if (myline == "red"){
-		
+		inbound = new Array();
+		outbound = new Array();
+		braintree = new Array();
+		var inboundindex = 0;
+		var outboundindex = 0;
+		var braintreeindex = 0;
+		for (i = 0; i<result.schedule.length; i++){	//bowdoin
+			if (result.schedule[i].Destination == "Ashmont"){	
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						inbound[inboundindex] = result.schedule[i].Predictions[j].Seconds;
+						inboundindex++;
+					}
+				}
+			} else if (result.schedule[i].Destination == "Alewife"){
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						outbound[outboundindex] = result.schedule[i].Predictions[j].Seconds;
+						outboundindex++;
+					}
+				}
+				
+			} else if (result.schedule[i].Destination == "Braintree"){
+				for (k = 0; k<result.schedule[i].Predictions.length; k++){
+					if (result.schedule[i].Predictions[k].Stop == station){
+						braintree[braintreeindex] = result.schedule[i].Predictions[k].Seconds;
+						braintreeindex++;
+					}
+				}			
+			}
+		}		
+	} else if (myline == "blue"){
+		inbound = new Array();
+		outbound = new Array();
+		var inboundindex = 0;
+		var outboundindex = 0;
+		for (i = 0; i<result.schedule.length; i++){	//bowdoin
+			if (result.schedule[i].Destination == "Bowdoin"){
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						inbound[inboundindex] = result.schedule[i].Predictions[j].Seconds;
+						inboundindex++;
+					}
+				}
+			} else if (result.schedule[i].Destination == "Wonderland"){	//wonderland
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						outbound[outboundindex] = result.schedule[i].Predictions[j].Seconds;
+						outboundindex++;
+					}
+				}
+				
+			}
+		}
+	} else if (myline == "orange"){		
+		inbound = new Array();
+		outbound = new Array();
+		var inboundindex = 0;
+		var outboundindex = 0;
+		for (i = 0; i<result.schedule.length; i++){	//forest hills
+			if (result.schedule[i].Destination == "Forest Hills"){
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						inbound[inboundindex] = result.schedule[i].Predictions[j].Seconds;
+						inboundindex++;
+					}
+				}
+			} else if (result.schedule[i].Destination == "Oak Grove"){	//Oak Grove
+				for (j = 0; j<result.schedule[i].Predictions.length; j++){
+					if (result.schedule[i].Predictions[j].Stop == station){
+						outbound[outboundindex] = result.schedule[i].Predictions[j].Seconds;
+						outboundindex++;
+					}
+				}
+				
+			}
+		}
 	}
 		
-}
-
-function outtrains(station){
-	
 }
 
 function drawStations(){
@@ -135,8 +210,8 @@ function drawStations(){
 
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
-						
-			var stationcontent = '<div id = "info">'+'<h3>'+bluestations[i].Station+'</h3>'+'<p>'	
+			
+			var stationcontent = 
 						
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
