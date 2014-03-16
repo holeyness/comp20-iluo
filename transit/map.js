@@ -120,7 +120,8 @@ function toRad(x){
 }
 
 function drawStations(){
-	stationinfo = new Array();
+	stationinfos = Array();
+	
 	if (myline == "blue"){
 
 		for (i = 0; i < bluestations.length; i++){
@@ -132,13 +133,14 @@ function drawStations(){
 				icon: image
 			});
 			
-			stationinfo[i] = new google.maps.InfoWindow({
+			var stationinfo = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
-			google.maps.event.addListener(stationMarker, 'click', function(){
+			google.maps.event.addListener(stationMarker, 'click', function(event){
 				stationinfo[i].open(map,stationMarker);
 			});
+			stationinfos.push(stationinfo);
 			
 		}
 	} else if (myline == "red"){
@@ -151,13 +153,14 @@ function drawStations(){
 				icon: image
 			});
 			
-			stationinfo[i] = new google.maps.InfoWindow({
+			var stationinfo = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
 				stationinfo[i].open(map,stationMarker);
 			});
+			stationinfos.push(stationinfo);
 		}
 	} else if (myline == "orange"){
 		for (i = 0; i < orangestations.length; i++){
@@ -169,13 +172,14 @@ function drawStations(){
 				icon: image
 			});
 			
-			stationinfo[i] = new google.maps.InfoWindow({
+			var stationinfo = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
 				stationinfo[i].open(map,stationMarker);
 			});
+			stationinfos.push(stationinfo);
 		}
 	}
 	drawLines();	
@@ -302,15 +306,15 @@ var redstations =
 {"Station":"Broadway","Lat":42.342622,"Long":-71.056967},
 {"Station":"Andrew","Lat":42.330154,"Long":-71.057655},
 {"Station":"JFK/UMass","Lat":42.320685,"Long":-71.052391},
+{"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
+{"Station":"Fields Corner","Lat":42.300093,"Long":-71.061667},
+{"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
+{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489}
 {"Station":"North Quincy","Lat":42.275275,"Long":-71.029583},
 {"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369},
 {"Station":"Quincy Center","Lat":42.251809,"Long":-71.005409},
 {"Station":"Quincy Adams","Lat":42.233391,"Long":-71.007153},
-{"Station":"Braintree","Lat":42.2078543,"Long":-71.0011385},
-{"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
-{"Station":"Fields Corner","Lat":42.300093,"Long":-71.061667},
-{"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
-{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489}];
+{"Station":"Braintree","Lat":42.2078543,"Long":-71.0011385}];
 
 var stations =
 [{"Color":"Blue","Station":"Airport","Lat":42.374262,"Long":-71.030395},
