@@ -136,7 +136,7 @@ function drawStations(){
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
 						
-			var stationcontent = '<div id = "info">'+'<h3>'+bluestations[i].Station+'</h3>'+'<p>'				trains(bluestations[i].Station)
+			var stationcontent = '<div id = "info">'+'<h3>'+bluestations[i].Station+'</h3>'+'<p>'	
 						
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
