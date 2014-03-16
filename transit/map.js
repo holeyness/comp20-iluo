@@ -119,14 +119,27 @@ function toRad(x){
 		 return x * Math.PI / 180;
 }
 
+function intrains(station){
+	if (myline == "red"){
+		
+	}
+		
+}
+
+function outtrains(station){
+	
+}
+
 function drawStations(){
 	if (myline == "blue"){
 
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
 						
+			var stationcontent = '<div id = "info">'+'<h3>'+bluestations[i].Station+'</h3>'+'<p>'				trains(bluestations[i].Station)
+						
 			var stationinfo = new google.maps.InfoWindow({
-				content: "LOL"
+				content: stationcontent
 			});
 			
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
