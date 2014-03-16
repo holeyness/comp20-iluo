@@ -119,7 +119,9 @@ function toRad(x){
 }
 
 function drawStations(){
+	var infos = new Array();
 	if (myline == "blue"){
+
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
@@ -128,6 +130,15 @@ function drawStations(){
 				map:map,
 				icon: image
 			});
+			
+			info[i] = new google.maps.InfoWindow({
+				content: "LOL"
+			});
+			
+			google.maps.event.addListener(stationMarker, 'click', function(){
+				info[i].open(map,marker);
+			});
+			
 		}
 	} else if (myline == "red"){
 		for (i = 0; i < redstations.length; i++){
@@ -137,6 +148,14 @@ function drawStations(){
 				position: myLatLng,
 				map:map,
 				icon: image
+			});
+			
+			info[i] = new google.maps.InfoWindow({
+				content: "LOL"
+			});
+			
+			google.maps.event.addListener(stationMarker, 'click', function(){
+				info[i].open(map,marker);
 			});
 		}
 	} else if (myline == "orange"){
@@ -148,6 +167,14 @@ function drawStations(){
 				map:map,
 				icon: image
 			});
+			
+			info[i] = new google.maps.InfoWindow({
+				content: "LOL"
+			});
+			
+			google.maps.event.addListener(stationMarker, 'click', function(){
+				info[i].open(map,marker);
+			});
 		}
 	}
 	drawLines();	
@@ -155,7 +182,7 @@ function drawStations(){
 }
 
 function mywindow(){
-	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ distance + '</p>'+'</div>';
+	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ Math.floor(distance*100)/100 +'miles' + '</p>'+'</div>';
 	
 	var info = new google.maps.InfoWindow({
 		content: mycontent
