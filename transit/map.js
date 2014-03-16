@@ -119,7 +119,7 @@ function toRad(x){
 }
 
 function drawStations(){
-	var infos = new Array();
+	var stationinfo = new Array();
 	if (myline == "blue"){
 
 		for (i = 0; i < bluestations.length; i++){
@@ -131,12 +131,12 @@ function drawStations(){
 				icon: image
 			});
 			
-			info[i] = new google.maps.InfoWindow({
+			stationinfo[i] = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
-				info[i].open(map,marker);
+				stationinfo[i].open(map,stationMarker);
 			});
 			
 		}
@@ -150,12 +150,12 @@ function drawStations(){
 				icon: image
 			});
 			
-			info[i] = new google.maps.InfoWindow({
+			stationinfo[i] = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
-				info[i].open(map,marker);
+				stationinfo[i].open(map,stationMarker);
 			});
 		}
 	} else if (myline == "orange"){
@@ -168,12 +168,12 @@ function drawStations(){
 				icon: image
 			});
 			
-			info[i] = new google.maps.InfoWindow({
+			stationinfo[i] = new google.maps.InfoWindow({
 				content: "LOL"
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
-				info[i].open(map,marker);
+				stationinfo[i].open(map,stationMarker);
 			});
 		}
 	}
