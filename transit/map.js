@@ -51,14 +51,6 @@ function findme(callback){
     navigator.geolocation.getCurrentPosition(function(position) {
       mypos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: mypos,
-        
-        
-        content: '!!!'
-      });
     lat = mypos["k"];
     console.log(lat);
     long = mypos["A"];
@@ -156,7 +148,17 @@ function drawStations(){
 			});
 		}
 	}
-	drawLines();		
+	drawLines();	
+	mywindow();	
+}
+
+function mywindow(){
+	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+'mystation'+'</p>'+'</div>';
+	
+	var info = new google.maps.InfoWindow({
+		content: mycontent
+		position: mypos
+	});
 }
 
 function drawLines(){
@@ -181,7 +183,7 @@ function drawLines(){
 		var path = new google.maps.Polyline({
 			path: redCoord,
 			geodesic: true,
-			strokeColor: '#0000FF',
+			strokeColor: '#FF0000',
 			strokeOpacity: 1.0,
 			strokeWeight: 2		
 		});
@@ -194,7 +196,7 @@ function drawLines(){
 		var path = new google.maps.Polyline({
 			path: orangeCoord,
 			geodesic: true,
-			strokeColor: '#0000FF',
+			strokeColor: '#FF6600',
 			strokeOpacity: 1.0,
 			strokeWeight: 2		
 		});
