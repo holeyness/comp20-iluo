@@ -208,7 +208,7 @@ function trains(station){	//returns an array with a list of times inbound
 function traintimes(array){
 	var text;
 	for (i=0; i < array.length; i++ ){
-		text = text + '<p id = times>' + array[i]/60 + ':' + array[i]%60 +'</p>';
+		text = text + '<p id = times>' + Math.floor(array[i]/60) + ':' + array[i]%60 +'</p>';
 	}
 	return text;
 }
@@ -218,12 +218,13 @@ function drawStations(){
 
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
-			trains(bluestations[i].Station);	//order the array
-			var inboundtime = traintimes(inbound);
-			var outboundtime = traintimes(outbound);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+
-			'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+		//	trains(bluestations[i].Station);	//order the array
+		//	var inboundtime = traintimes(inbound);
+		//	var outboundtime = traintimes(outbound);
+		//	var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+
+		//	'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 		
+			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
 			});
@@ -245,9 +246,8 @@ function drawStations(){
 		for (i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
 			
-			trains(redstations[i].Station);
-			
-
+		//	trains(redstations[i].Station);
+			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
 			});
@@ -268,7 +268,7 @@ function drawStations(){
 		for (i = 0; i < orangestations.length; i++){
 			var image = 'marker.png';
 			
-			trains(orangestations[i].Station)
+		//	trains(orangestations[i].Station)
 			var stationcontent;
 			
 			var stationinfo = new google.maps.InfoWindow({
