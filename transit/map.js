@@ -309,7 +309,7 @@ var redstations =
 {"Station":"Savin Hill","Lat":42.31129,"Long":-71.053331},
 {"Station":"Fields Corner","Lat":42.300093,"Long":-71.061667},
 {"Station":"Shawmut","Lat":42.29312583,"Long":-71.06573796},
-{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489}
+{"Station":"Ashmont","Lat":42.284652,"Long":-71.064489},
 {"Station":"North Quincy","Lat":42.275275,"Long":-71.029583},
 {"Station":"Wollaston","Lat":42.2665139,"Long":-71.0203369},
 {"Station":"Quincy Center","Lat":42.251809,"Long":-71.005409},
