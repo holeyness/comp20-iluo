@@ -8,6 +8,7 @@ var myline = "white";
 var result;
 var mylinestations;
 var posmarker;
+var distance;
 
 function init() {
      var mapOptions = {
@@ -78,7 +79,7 @@ function findme(callback){
 
 
 function closestStation(){
-	var distance = 10000;
+    distance = 10000;
 	var stationname;
 	
 	console.log("run");
@@ -154,7 +155,7 @@ function drawStations(){
 }
 
 function mywindow(){
-	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'</div>';
+	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ distance + '</p>'+'</div>';
 	
 	var info = new google.maps.InfoWindow({
 		content: mycontent
