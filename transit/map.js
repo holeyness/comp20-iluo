@@ -161,7 +161,7 @@ function drawStations(){
 
 function drawLines(){
 	if (myline == "blue"){
-		var blueCoord;
+		var blueCoord = [];
 		for (i = 0; i < bluestations.length; i++){
 			blueCoord.push(new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long));
 		}
