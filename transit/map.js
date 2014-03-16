@@ -161,8 +161,9 @@ function drawStations(){
 
 function drawLines(){
 	if (myline == "blue"){
+		var blueCoord;
 		for (i = 0; i < bluestations.length; i++){
-			var blueCoord = [new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long)];
+			blueCoord.push(new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long));
 		}
 		var path = new google.maps.Polyline({
 			path: blueCoord,
