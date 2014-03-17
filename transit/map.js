@@ -124,31 +124,28 @@ function toRad(x){
 }
 
 function trains(station){	//returns an array with a list of times inbound
-		inbound = new Array();
-		outbound = new Array();
+	inbound = new Array();
+	outbound = new Array();
 	if (myline == "red"){
 		braintree = new Array();
 		for (i = 0; i<result.schedule.length; i++){	//bowdoin
 			if (result.schedule[i].Destination == "Ashmont"){	
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
-						inbound[inboundindex] = result.schedule[i].Predictions[j].Seconds;
-						inboundindex++;
+						inbound.push(result.schedule[i].Predictions[j].Seconds);
 					}
 				}
 			} else if (result.schedule[i].Destination == "Alewife"){
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
-						outbound[outboundindex] = result.schedule[i].Predictions[j].Seconds;
-						outboundindex++;
+						outbound.push(result.schedule[i].Predictions[j].Seconds);
 					}
 				}
 				
 			} else if (result.schedule[i].Destination == "Braintree"){
 				for (k = 0; k<result.schedule[i].Predictions.length; k++){
 					if (result.schedule[i].Predictions[k].Stop == station){
-						braintree[braintreeindex] = result.schedule[i].Predictions[k].Seconds;
-						braintreeindex++;
+						braintree.push(result.schedule[i].Predictions[j].Seconds);
 					}
 				}			
 			}
@@ -158,7 +155,7 @@ function trains(station){	//returns an array with a list of times inbound
 			if (result.schedule[i].Destination == "Bowdoin"){
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
-						inbound.push(result.schedule[i].Predictions[j].Seconds;
+						inbound.push(result.schedule[i].Predictions[j].Seconds);
 					}
 				}
 			} else if (result.schedule[i].Destination == "Wonderland"){	//wonderland
@@ -175,7 +172,7 @@ function trains(station){	//returns an array with a list of times inbound
 			if (result.schedule[i].Destination == "Forest Hills"){
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
-						inbound.push(result.schedule[i].Predictions[j].Seconds;
+						inbound.push(result.schedule[i].Predictions[j].Seconds);
 					}
 				}
 			} else if (result.schedule[i].Destination == "Oak Grove"){	//Oak Grove
