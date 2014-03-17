@@ -145,7 +145,7 @@ function trains(station){	//returns an array with a list of times inbound
 			} else if (result.schedule[i].Destination == "Braintree"){
 				for (k = 0; k<result.schedule[i].Predictions.length; k++){
 					if (result.schedule[i].Predictions[k].Stop == station){
-						braintree.push(result.schedule[i].Predictions[j].Seconds);
+						braintree.push(result.schedule[i].Predictions[k].Seconds);
 					}
 				}			
 			}
