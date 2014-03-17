@@ -128,24 +128,24 @@ function trains(station){	//returns an array with a list of times inbound
 	outbound = new Array();
 	if (myline == "red"){
 		braintree = new Array();
-		for (i = 0; i<result.schedule.length; i++){	//bowdoin
-			if (result.schedule[i].Destination == "Ashmont"){	
-				for (j = 0; j<result.schedule[i].Predictions.length; j++){
-					if (result.schedule[i].Predictions[j].Stop == station){
-						inbound.push(result.schedule[i].Predictions[j].Seconds);
+		for (var a = 0; a<result.schedule.length; a++){	//bowdoin
+			if (result.schedule[a].Destination == "Ashmont"){	
+				for (var b = 0; b<result.schedule[a].Predictions.length; b++){
+					if (result.schedule[a].Predictions[b].Stop == station){
+						inbound.push(result.schedule[a].Predictions[b].Seconds);
 					}
 				}
-			} else if (result.schedule[i].Destination == "Alewife"){
-				for (j = 0; j<result.schedule[i].Predictions.length; j++){
-					if (result.schedule[i].Predictions[j].Stop == station){
-						outbound.push(result.schedule[i].Predictions[j].Seconds);
+			} else if (result.schedule[a].Destination == "Alewife"){
+				for (var c = 0; c<result.schedule[i].Predictions.length; c++){
+					if (result.schedule[a].Predictions[c].Stop == station){
+						outbound.push(result.schedule[a].Predictions[c].Seconds);
 					}
 				}
 				
 			} else if (result.schedule[i].Destination == "Braintree"){
-				for (k = 0; k<result.schedule[i].Predictions.length; k++){
-					if (result.schedule[i].Predictions[k].Stop == station){
-						braintree.push(result.schedule[i].Predictions[k].Seconds);
+				for (var d = 0; d<result.schedule[a].Predictions.length; d++){
+					if (result.schedule[a].Predictions[d].Stop == station){
+						braintree.push(result.schedule[a].Predictions[d].Seconds);
 					}
 				}			
 			}
@@ -232,7 +232,7 @@ function drawStations(){
 		for (i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
 			
-		//	trains(redstations[i].Station);
+			trains(redstations[i].Station);
 			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
