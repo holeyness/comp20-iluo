@@ -136,13 +136,13 @@ function trains(station){	//returns an array with a list of times inbound
 					}
 				}
 			} else if (result.schedule[a].Destination == "Alewife"){
-				for (var c = 0; c<result.schedule[i].Predictions.length; c++){
+				for (var c = 0; c<result.schedule[a].Predictions.length; c++){
 					if (result.schedule[a].Predictions[c].Stop == station){
 						outbound.push(result.schedule[a].Predictions[c].Seconds);
 					}
 				}
 				
-			} else if (result.schedule[i].Destination == "Braintree"){
+			} else if (result.schedule[a].Destination == "Braintree"){
 				for (var d = 0; d<result.schedule[a].Predictions.length; d++){
 					if (result.schedule[a].Predictions[d].Stop == station){
 						braintree.push(result.schedule[a].Predictions[d].Seconds);
@@ -233,6 +233,9 @@ function drawStations(){
 			var image = 'marker.png';
 			
 			trains(redstations[i].Station);
+			var inboundtime = traintimes(inbound);
+			var outboundtime = traintimes(outbound);
+		    var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
