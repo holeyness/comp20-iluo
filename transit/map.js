@@ -211,7 +211,7 @@ function drawStations(){
 			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 		
 			var stationinfo = new google.maps.InfoWindow({
-				content: stationcontent
+				content: "HELLO"
 			});
 			
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
