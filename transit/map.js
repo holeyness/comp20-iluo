@@ -41,7 +41,6 @@ function downloadData(){
 			if (xhr.status == 200){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
-				console.log(myline);	
 				findme(closestStation);
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
@@ -58,11 +57,11 @@ function findme(callback){
       mypos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
     lat = mypos["k"];
-    console.log(lat);
+
     long = mypos["A"];
-    console.log(long);
+
     
-    setTimeout(function(){console.log("Hello"), callback();}, 10000);
+    setTimeout(function(){callback();}, 10000);
     
     
     posmarker = new google.maps.Marker({
@@ -86,7 +85,6 @@ function closestStation(){
     distance = 10000;
 	var stationname;
 	
-	console.log("run");
 	if (myline == "red"){
 		for (i=0; i<redstations.length; i++){
 			var dist = calculate(redstations[i].Lat,redstations[i].Long,lat,long);
@@ -113,7 +111,6 @@ function closestStation(){
 		}	
 	}
 	mystation = stationname;
-	console.log(stationname);
 	drawStations();
 	mywindow();	
 	
