@@ -241,7 +241,7 @@ function drawStations(){
 			});
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
-				this.infowindow.open(map, this)
+				this.infowindow.open(map, stationMarker)
 			});
 			
 			//trains(redstations[i].Station);
