@@ -41,6 +41,7 @@ function downloadData(){
 			if (xhr.status == 200){
 				result = JSON.parse(xhr.response);
 				myline = result.line;
+				console.log(myline);
 				findme(closestStation);
 			} else if (xhr.status == 500){
 				downloadData();	//repeat function if status is 500
