@@ -241,14 +241,12 @@ function drawStations(){
 			});
 			
 			trains(redstations[i].Station);
-			console.log(inbound);
-			console.log(outbound);
-			//var inboundtime = traintimes(inbound);
-			//var outboundtime = traintimes(outbound);
-		   // var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			var inboundtime = traintimes(inbound);
+			var outboundtime = traintimes(outbound);
+		    var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 			//var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
-				content: "HELLO"
+				content: stationcontent
 			});
 			
 
