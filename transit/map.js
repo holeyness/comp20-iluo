@@ -227,7 +227,10 @@ function drawStations(){
 	} else if (myline == "red"){
 		for (i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
-			
+			var stationcontent;
+			var stationinfo = new google.maps.InfoWindow({
+				content: stationcontent
+			});
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -236,18 +239,17 @@ function drawStations(){
 				infowindow: stationinfo
 			});
 			
-			trains(redstations[i].Station);
-			var inboundtime = traintimes(inbound);
-			var outboundtime = traintimes(outbound);
-		    var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
-			//var stationcontent;
-			var stationinfo = new google.maps.InfoWindow({
-				content: stationcontent
-			});
+			
 			
 			google.maps.event.addListener(stationMarker, 'click', function(){
 				this.infowindow.open(map, this)
 			});
+			
+			trains(redstations[i].Station);
+			var inboundtime = traintimes(inbound);
+			var outboundtime = traintimes(outbound);
+		    stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+
 			
 
 		}
