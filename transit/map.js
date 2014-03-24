@@ -203,9 +203,9 @@ function drawStations(){
 		for (i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
 			//trains(bluestations[i].Station);	//order the array
-			var inboundtime = traintimes(inbound);
-			var outboundtime = traintimes(outbound);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			//var inboundtime = traintimes(inbound);
+			//var outboundtime = traintimes(outbound);
+			//var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 		
 			var stationinfo = new google.maps.InfoWindow({
 				content: "HELLO"
@@ -228,13 +228,13 @@ function drawStations(){
 		for (i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
 			
-			trains(redstations[i].Station);
+			//trains(redstations[i].Station);
 			//var inboundtime = traintimes(inbound);
 			//var outboundtime = traintimes(outbound);
 		   // var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
-			var stationcontent;
+			//var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
-				content: stationcontent
+				content: "HELLO"
 			});
 			
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
@@ -254,10 +254,10 @@ function drawStations(){
 			var image = 'marker.png';
 			
 		//	trains(orangestations[i].Station)
-			var stationcontent;
+			//var stationcontent;
 			
 			var stationinfo = new google.maps.InfoWindow({
-				content: stationcontent
+				content: "HELLO"
 			});
 			
 			var myLatLng = new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long);
