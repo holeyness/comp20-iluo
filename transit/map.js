@@ -229,7 +229,7 @@ function drawStations(){
 			var image = 'marker.png';
 			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
-				content: stationcontent
+				content: "Hello"
 			});
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
 			var stationMarker = new google.maps.Marker({
@@ -239,19 +239,19 @@ function drawStations(){
 				infowindow: stationinfo
 			});
 			
-			
-			
 			google.maps.event.addListener(stationMarker, 'click', function(){
 				this.infowindow.open(map, this)
 			});
 			
-			trains(redstations[i].Station);
-			var inboundtime = traintimes(inbound);
-			var outboundtime = traintimes(outbound);
-		    stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			//trains(redstations[i].Station);
+		   //var inboundtime = traintimes(inbound);
+			//var outboundtime = traintimes(outbound);
+			
+			//console.log(inboundtime);
+			//console.log(outboundtime);
+		   // stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 
 			
-
 		}
 	} else if (myline == "orange"){
 		for (i = 0; i < orangestations.length; i++){
