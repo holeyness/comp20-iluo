@@ -236,10 +236,6 @@ function drawStations(){
 				infowindow: stationinfo
 			});
 			
-			google.maps.event.addListener(stationMarker, 'click', function(){
-				this.infowindow.open(map, this)
-			});
-			
 			trains(redstations[i].Station);
 			var inboundtime = traintimes(inbound);
 			var outboundtime = traintimes(outbound);
@@ -247,6 +243,10 @@ function drawStations(){
 			//var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
 				content: stationcontent
+			});
+			
+			google.maps.event.addListener(stationMarker, 'click', function(){
+				this.infowindow.open(map, this)
 			});
 			
 
