@@ -14,10 +14,14 @@ body{
 
 #inbound {
 	float: left;
-	width: 50px;
+	width: 60px;
 }
 
 #outbound{
 	float: right;
-	width: 50px;	
+	width: 60px;	
+}
+h3{
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
