@@ -287,6 +287,8 @@ function drawStations(){
 }
 
 function mywindow(){
+	var lateral = lat.toFixed(6);
+	var vertical = long.toFixed(6);
 	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ Math.floor(distance*100)/100 +' miles' + '</p>'+'</div>';
 	
 	var info = new google.maps.InfoWindow({

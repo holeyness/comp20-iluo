@@ -6,6 +6,6 @@ Purpose: Use the geolocator to determine the closest T station and use an extern
 
 Hours spent: 8 hrs
 
-Collaborated with: Stack Overflow & other various internet sources.
+Collaborated with: Stack Overflow & other various internet sources + Johnny Lau.
 
-Still to do: Schedule of the trains at each station.
+Project Complete!
