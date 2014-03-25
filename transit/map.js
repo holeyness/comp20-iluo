@@ -234,8 +234,8 @@ function drawStations(){
 			trains(redstations[i].Station);	//order the array
 			var inboundtime = traintimes(inbound);
 			var outboundtime = traintimes(outbound);
-			var braintree = traintimes(braintree);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ redstations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ '<h4>Ashmont</h4>'+inboundtime + '</div>' + '<div id = "outbound">'+ '<h4>Alewife</h4>'+outboundtime + '</div>'+'<div id = "braintree">'+ '<h4>Braintree</h4>'+braintree + '</div>';
+			var brain = traintimes(braintree);
+			var stationcontent = '<div id = "title">'+'<h3>Station: '+ redstations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ '<h4>Ashmont</h4>'+inboundtime + '</div>' + '<div id = "outbound">'+ '<h4>Alewife</h4>'+outboundtime + '</div>'+'<div id = "braintree">'+ '<h4>Braintree</h4>'+brain + '</div>';
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -289,7 +289,7 @@ function drawStations(){
 function mywindow(){
 	var lateral = lat.toFixed(6);
 	var vertical = long.toFixed(6);
-	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lat+', '+long+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ Math.floor(distance*100)/100 +' miles' + '</p>'+'</div>';
+	var mycontent = '<div id = "title">'+'<h3>You are here</h3>'+'</div>'+'<div id ="text">'+'<p>Location: '+lateral+', '+vertical+'</p>'+'<p>Closest Station: '+mystation+'</p>'+'<p>Distance: '+ Math.floor(distance*100)/100 +' miles' + '</p>'+'</div>';
 	
 	var info = new google.maps.InfoWindow({
 		content: mycontent
