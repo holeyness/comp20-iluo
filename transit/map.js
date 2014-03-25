@@ -149,7 +149,7 @@ function trains(station){	//returns an array with a list of times inbound
 			}
 		}		
 	} else if (myline == "blue"){
-		for (i = 0; i<result.schedule.length; i++){	//bowdoin
+		for (var i = 0; i<result.schedule.length; i++){	//bowdoin
 			if (result.schedule[i].Destination == "Bowdoin"){
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
@@ -166,7 +166,7 @@ function trains(station){	//returns an array with a list of times inbound
 			}
 		}
 	} else if (myline == "orange"){		
-		for (i = 0; i<result.schedule.length; i++){	//forest hills
+		for (var i = 0; i<result.schedule.length; i++){	//forest hills
 			if (result.schedule[i].Destination == "Forest Hills"){
 				for (j = 0; j<result.schedule[i].Predictions.length; j++){
 					if (result.schedule[i].Predictions[j].Stop == station){
@@ -201,7 +201,7 @@ function traintimes(array){
 function drawStations(){
 	if (myline == "blue"){
 
-		for (i = 0; i < bluestations.length; i++){
+		for (var i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
 			//trains(bluestations[i].Station);	//order the array
 			//var inboundtime = traintimes(inbound);
@@ -217,7 +217,7 @@ function drawStations(){
 			});
 			
 			var stationinfo = new google.maps.InfoWindow({
-				content: "HELLO"
+				content: stationcontent
 			});
 			
 
@@ -232,7 +232,7 @@ function drawStations(){
 		}	
 	
 	} else if (myline == "red"){
-		for (i = 0; i < redstations.length; i++){
+		for (var i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
 			var stationcontent;
 			var stationinfo = new google.maps.InfoWindow({
@@ -261,7 +261,7 @@ function drawStations(){
 			
 		}
 	} else if (myline == "orange"){
-		for (i = 0; i < orangestations.length; i++){
+		for (var i = 0; i < orangestations.length; i++){
 			var image = 'marker.png';
 			
 		//	trains(orangestations[i].Station)
@@ -300,7 +300,7 @@ function mywindow(){
 function drawLines(){
 	if (myline == "blue"){
 		var blueCoord = [];
-		for (i = 0; i < bluestations.length; i++){
+		for (var i = 0; i < bluestations.length; i++){
 			blueCoord.push(new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long));
 		}
 		var path = new google.maps.Polyline({
@@ -313,7 +313,7 @@ function drawLines(){
 		path.setMap(map);
 	} else if (myline == "red"){
 		var redCoord = [];
-		for (i = 0; i < redstations.length; i++){
+		for (var i = 0; i < redstations.length; i++){
 			redCoord.push(new google.maps.LatLng(redstations[i].Lat, redstations[i].Long));
 		}
 		var path = new google.maps.Polyline({
@@ -326,7 +326,7 @@ function drawLines(){
 		path.setMap(map);
 	} else if (myline == "orange"){
 		var orangeCoord = [];
-		for (i = 0; i < orangestations.length; i++){
+		for (var i = 0; i < orangestations.length; i++){
 			orangeCoord.push(new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long));
 		}
 		var path = new google.maps.Polyline({
