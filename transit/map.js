@@ -203,12 +203,10 @@ function drawStations(){
 
 		for (var i = 0; i < bluestations.length; i++){
 			var image = 'marker.png';
-			//trains(bluestations[i].Station);	//order the array
-			//var inboundtime = traintimes(inbound);
-			//var outboundtime = traintimes(outbound);
-			//	var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
-			var stationcontent = bluestations[i].Station;
-
+			trains(bluestations[i].Station);	//order the array
+			var inboundtime = traintimes(inbound);
+			var outboundtime = traintimes(outbound);
+			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -220,8 +218,6 @@ function drawStations(){
 				content: stationcontent
 			});
 			
-
-
 			google.maps.event.addListener(stationMarker, 'click', (function(stationMarker, 												stationcontent, stationinfo){
 				return function(){
 					stationinfo.setContent(stationcontent);
