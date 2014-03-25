@@ -215,20 +215,20 @@ function drawStations(){
 				icon: image,
 			});
 
-			var stationcontent;
+			var stationcontent = "HELLO1";
 			var stationinfo = new google.maps.InfoWindow({
 				content: "HELLO"
 			});
 			
 
 
-			google.maps.event.addListener(stationMarker, 'click', function(stationMarker, 												stationcontent, stationinfo){
+			google.maps.event.addListener(stationMarker, 'click', (function(stationMarker, 												stationcontent, stationinfo){
 				return function(){
 					stationinfo.setContent(stationcontent);
-					stationinfo.open(map, stationmarker);
+					stationinfo.open(map, stationMarker);
 				};
 				
-			})(stationMarker, stationcontent, stationinfo);
+			})(stationMarker, stationcontent, stationinfo));
 		}	
 	
 	} else if (myline == "red"){
