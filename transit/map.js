@@ -207,24 +207,30 @@ function drawStations(){
 			//var inboundtime = traintimes(inbound);
 			//var outboundtime = traintimes(outbound);
 			//var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
-		
-			var stationinfo = new google.maps.InfoWindow({
-				content: "HELLO"
-			});
-			
+
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
 				map:map,
 				icon: image,
-				infowindow: stationinfo
 			});
 
-			google.maps.event.addListener(stationMarker, 'click', function(){
-				stationinfo.open(map, stationMarker)
+			var stationcontent;
+			var stationinfo = new google.maps.InfoWindow({
+				content: "HELLO"
 			});
 			
-		}
+
+
+			google.maps.event.addListener(stationMarker, 'click', function(stationMarker, 												stationcontent, stationinfo){
+				return function(){
+					stationinfo.setContent(stationcontent);
+					stationinfo.open(map, stationmarker);
+				};
+				
+			})(stationMarker, stationcontent, stationinfo);
+		}	
+	
 	} else if (myline == "red"){
 		for (i = 0; i < redstations.length; i++){
 			var image = 'marker.png';
