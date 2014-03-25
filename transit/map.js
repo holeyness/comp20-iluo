@@ -207,7 +207,7 @@ function drawStations(){
 			trains(bluestations[i].Station);	//order the array
 			var inboundtime = traintimes(inbound);
 			var outboundtime = traintimes(outbound);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			var stationcontent = '<div id = "title">'+'<h3>Station: '+ bluestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+'<h4>Inbound</h4>'+ inboundtime + '</div>' + '<div id = "outbound">'+ '<h4>Outbound</h4>'+ outboundtime + '</div>';
 			var myLatLng = new google.maps.LatLng(bluestations[i].Lat, bluestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -234,7 +234,7 @@ function drawStations(){
 			trains(redstations[i].Station);	//order the array
 			var inboundtime = traintimes(inbound);
 			var outboundtime = traintimes(outbound);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ redstations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			var stationcontent = '<div id = "title">'+'<h3>Station: '+ redstations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ '<h4>Inbound</h4>'+inboundtime + '</div>' + '<div id = "outbound">'+ '<h4>Outbound</h4>'+outboundtime + '</div>';
 			var myLatLng = new google.maps.LatLng(redstations[i].Lat, redstations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,
@@ -260,7 +260,7 @@ function drawStations(){
 			trains(orangestations[i].Station);	//order the array
 			var inboundtime = traintimes(inbound);
 			var outboundtime = traintimes(outbound);
-			var stationcontent = '<div id = "title">'+'<h3>Station: '+ orangestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+ inboundtime + '</div>' + '<div id = "outbound">'+ outboundtime + '</div>';
+			var stationcontent = '<div id = "title">'+'<h3>Station: '+ orangestations[i].Station +'</h3>'+'</div>'+'<div id="inbound">'+'<h4>Inbound</h4>'+inboundtime + '</div>' + '<div id = "outbound">'+ '<h4>Outbound</h4>'+outboundtime + '</div>';
 			var myLatLng = new google.maps.LatLng(orangestations[i].Lat, orangestations[i].Long);
 			var stationMarker = new google.maps.Marker({
 				position: myLatLng,

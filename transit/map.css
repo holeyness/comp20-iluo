@@ -11,3 +11,13 @@ body{
 #canvas{
 	height: 100%
 }
+
+#inbound {
+	float: left;
+	width: 50px;
+}
+
+#outbound{
+	float: right;
+	width: 50px;	
+}
