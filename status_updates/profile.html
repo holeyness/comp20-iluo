@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -26,6 +27,9 @@
 		var output = month+"/"+day+"/"+year+" "+hour+":"+minute+" - "+text ;
 		newparagraphs.innerHTML = output;
 		
+		var currentcount = localStorage.count;
+		localStorage.setItem(currentcount, output);		
+		localStorage.count = Number(currentcount) +1;
 
 		
 		if (container.firstChild == null){
@@ -37,12 +41,30 @@
 	
 
 	}
+	
+	function init(){
+		
+		if (!localStorage.count){
+			localStorage.count = 0;
+		} else {
+			for (var i = 0; i < localStorage.count; i++){
+				var newparagraphs = document.createElement("p");
+				newparagraphs.innerHTML = localStorage.getItem(i);
+				var container = document.getElementById("status");
+				if (container.firstChild == null){
+					container.appendChild(newparagraphs);
+				} else {
+					container.insertBefore(newparagraphs,container.firstChild);
+				}
+			}
+		}	
+	}
 </script>
 
 
 </head>
 
-<body>
+<body onload="init()">
 	<h1>Fecebook</h1>
 	<div id="nav">
 		<ul>
