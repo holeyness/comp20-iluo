@@ -10,3 +10,4 @@ Function: Updates from the form are dynamically updated onto the page
 
 Notes: The status are updated from the latest on top, while the timestamp is added to each message.
 
+URL for Heroku: http://mysterious-ridge-3540.herokuapp.com/
