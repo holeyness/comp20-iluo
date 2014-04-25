@@ -1,15 +1,10 @@
-Comp 20 (Spring 2014)
-
+Comp 20 (Spring 2014) Portfolio
+===========================
 Yueming (Ian) Luo Portfolio
-
 
 Web Programming
 
-
 Tufts University
-===========================
-
-COMP 20 Spring 2014 Private Repo for Ian Luo
 
 Purpose: The purpose of this repository is to showcase the student projects for the class Comp 20 (Web Programming) for future reference purposes.
 
