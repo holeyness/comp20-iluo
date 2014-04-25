@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<!--
+	Helios 1.5 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Comp 20 Project 5</title>
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+
+		<!-- Main -->
+			<div class="wrapper style1">
+
+				<div class="container">
+					<div class="row">
+						<div class="12u skel-cell-important" id="content">
+							<article id="main" class="special">
+								<header>
+									<h2>Comp 20 Project 5</h2>
+									<span class="byline">
+										Security Assessment of Game Center
+									</span>
+									<h3>By: Ian Luo </h3>
+								</header>
+								<section>
+									<header>
+										<h3>Introduction</h3>
+									</header>
+									<p>
+										This website, located <a href="http://agile-caverns-9269.herokuapp.com/">here</a> is a gamecenter for the popular 2048 game. The site receives submission of scores from any instance of the game and stores the data in a database along with the username and a timestamp. The purpose of this document is to find various security vulnerbilities in the site.
+									</p>
+								</section>
+								<section>
+									<header>
+										<h3>Methodology</h3>
+									</header>
+									<p>
+										To discover these bugs I used cURL to post data to the site and checked the result on the site to test for XSS (black box). Then I received the source code from my partner and I looked through the code to find any vulnerabilities in the web app. After consulting various resources from other security website to security experts (ming) and my partners, I've discovered the following vulnerabilities on my partners web app.
+									</p>
+									<header>
+										<h3>Abstraction</h3>
+									</header>
+									<p>
+										There are several weakness that may be exploited by attackers. The web app has too much trust in its client to give meaningful data and trust that only authorized instances of the game are posting towards the site, both of which may not be the case. The web app requires more verification in terms of its inputs and only allow those from authorized clients.
+									</p>
+								</section>
+								<hr />
+								<section>
+									<header>
+										<h3>Vulnerabilities</h3>
+									</header>
+									<h4>1. Input Validation</h4>
+									<h5>Location: / and /scores.json</h5>
+									<p><b>Severity: Medium</b><br>Although this does not give the attacker anymore access or execute anything on the web server, it disrupts the user experience by showing garbage result on the front page.</p>
+									<h5>Description</h5>
+									<p>Currently, the web app does not have any form of input validation. Using Curl, I exploited this vulnerability by sending data that does not fit the game onto the web server. For example scores that aren't strings, but random garbage and grid that is not the json of a grid. The username section is currently hard coded on the web server to be "Justin", which does not allow for manipulations.</p>
+									<p>For example: this curl command <br /><img src="images/1.jpg" width="500"><br/> would result in the website displaying ANYTHINGINTHEWORLD in the scores section as show below.</p>
+									<img src="images/2.jpg" height="200">
+									<h5>Resolution</h5>
+									<p>Input validation is needed on the server side when data is posted onto the server. On the app.js file, on line 76, score needs to be checked if it only contains integers which can be done using the following code: 
+										<b>if (score === parseInt(score))</b></p>
+									<p>As for the scores section, the web app needs to check if the input is valid JSON, which can be done using the following code at line 77. <b> <br>try{<br> var test = JSON.parse(grid); <br>} catch(e){<br>"DO NOT PROCEED"<br>}</b>
+										<hr>
+									<h4>2. Spam (Repeated Entry)</h4>
+									<h5>Location: / and /scores.json</h5>
+									<p><b>Severity: Medium</b><br>This would be annoying on a production site</p>
+									<h5>Description</h5>
+									<p>A script can be made to POST random data to the web app really quickly and as long as it satisfies the requirements, the web app will accept the input. Thus giving people a chance to flood the website and the database. If there was a limit on the database size, excessive flooding will basically become a DOS attack where the server cannot accept newer entries.</p>
+									<p>Example: Looking at the following sample, this looks pretty annoying if it was on an actual site as any users real result would get flooded by random inputs. Note in this example, I didn't even write a script, but was able to post lots of results very rapidly; thus showing how easy a script could take down the site.</p>
+									<img src="images/3.jpg" height="400">
+									<h5>Resolution</h5>
+									<p>There are several remedies to this issue.</p>
+									<ul>
+										<li>Captcha</li>
+										<p>Adding a captcha to the submission form would prevent any unauthorized mass spamming and would completely disable a bot while adding a little inconvenience to the users.</li>
+										<li>Authentication</li>
+										<p>Adding some sort of cryptographical authorization that either connects with the user (i.e. user and secret key) or with the game system itself (i.e. have a code implemented within the game that the server will only accept the result from if it has been signed with the game)</p>
+										<li>Limit Posting Frequency</li>
+										<p>The sever could verify the IP address using the http-headers and limit the number of times a single user could submit to maybe like 3 every 10 minutes; thus removing the possibility for spam</p>
+									</ul>
+									<hr>
+									<h4>3. Cross Origin Resource Sharing</h4>
+									<h5>Location: Submit.json</h5>
+									<p><b>Severity: Low</b></p>
+									<h5>Description</h5>
+									<p>Looking at the code, the Node.JS adds the header Access-Control-Allow-Origin with a wild card that accepts data from any domain. This means any javascript client can send data to the web app and not just instances of the 2048 game hosted on a specific website.</p>
+										<p>Example: A competitor can post data to the game center by modifying the post request and access the web app without your permission.</p>
+									<img src="images/4.jpg" height="200">
+									<p>The example above is the code from my own installation of 2048 which may access your web app. If I distribute this version of 2048, data from the game will be posted towards your website.</p>
+
+									<h5>Other Javascript Clients</h5>
+									<p>Alternatively any javascript program can also send data towards the web app which will also be accepted. For example:</p>
+									<img src="images/5.jpg" height="400">
+									<p>Thus any program can request both get and post request from the 2048 game center</p>
+
+									<h5>Resolution</h5>
+									<p>Instead of having a wildcard access-control-allow-origin, the domain should be allowed only from the domain where the game client is hosted, i.e. http://gabrielecirulli.github.io/2048/ which would only allow this instance of the program to have access to the Web app.</p>
+								</section>
+								<hr>
+								<h3>Conclusion</h3>
+								<p>Overall, the site is secured to code injection attacks due to character filtering from the Jade Template, this it's difficult to inject any code to be executed on the server side. However, the web app does not check for the authenticity of its requests and can be easily DOSed with a simple script that fill the site with meaningless inputs. Also the CORS weakness could also open the site to many more vulnerabilities as it doesnt check the origin of the input which could be easily fixed.
+
+								<p>Improvements: Host the game and the web app on a secure server and only allow the web app to receive requests from that specific domain.
+								Secondly, Input validation shoould be implemented, even though it may have a performance impact on a very busy site. Finally, implementing a captcha system for submitting a score, which would definitely have an impact on user experience, but reduces the possibility of spam.</p>
+							</article>
+					</div>
+				</div>
+
+			</div>
+
+	</body>
+</html>
